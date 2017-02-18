@@ -5,12 +5,12 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <servlet-class>servlets.HelloWorldServlet</servlet-class>
+        <servlet-name>PriceCalculationServlet</servlet-name>
+        <servlet-class>servlets.PriceCalculationServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>PriceCalculationServlet</servlet-name>
+        <url-pattern>/calculatePrice.do</url-pattern>
     </servlet-mapping>
 </web-app>
