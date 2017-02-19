@@ -1,0 +1,32 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Map" %>
+<%
+	Map<String, String> fieldsMap = new HashMap<>();
+	fieldsMap.put("newCarPrice", "Ціна нового авто в Україні");
+	fieldsMap.put("operatingPeriod", "Період експлуатації");
+	fieldsMap.put("mileage", "Пробіг");
+	request.setAttribute("fieldsMap", fieldsMap);
+%>
+
+<form id="carForm" class="col s12">
+
+	<c:forEach items="${fieldsMap}" var="field">
+		<c:set var="fieldKey" value="${field.key}"/>
+		<c:set var="fieldValue" value="${field.value}"/>
+		<div class="row">
+			<div class="input-field col s6">
+				<input id="${fieldKey}" name="${fieldKey}" type="text" class="validate"
+					<c:set var="paramValue" value='${param.get(fieldKey)}'/>
+				<c:if test="${paramValue != null && !empty paramValue}">
+					   value="${paramValue}"</c:if>>
+				<label for=${fieldKey}>${fieldValue}</label>
+			</div>
+		</div>
+	</c:forEach>
+
+	<div class="row">
+		<a id="submitFormBtn" class="waves-effect waves-light btn">Розрахувати вартість</a>
+	</div>
+
+</form>
