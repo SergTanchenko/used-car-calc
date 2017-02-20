@@ -15,4 +15,19 @@ public class PriceCalculationServlet extends HttpServlet {
 
         dispatcher.forward(req, resp);
     }
+
+    public enum Field {
+        NEW_CAR_PRICE("newCarPrice"), OPERATING_PERIOD("operatingPeriod"), MILEAGE("mileage");
+
+        private final String fieldName;
+
+        Field(String fieldName) {
+            this.fieldName = fieldName;
+        }
+
+        @Override
+        public String toString() {
+            return fieldName;
+        }
+    }
 }
