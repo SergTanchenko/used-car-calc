@@ -32,4 +32,8 @@
 		<a id="submitFormBtn" class="waves-effect waves-light btn">Розрахувати вартість</a>
 	</div>
 
+	<div class="row">
+		<div>Price: ${requestScope.get("carPrice")}</div>
+	</div>
+
 </form>
