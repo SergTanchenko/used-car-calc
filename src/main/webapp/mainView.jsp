@@ -9,7 +9,8 @@
 
 		<!-- CSS  -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link href="<c:url value="static/css/materialize.min.css" />" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="<c:url value="static/css/materialize.min.css" />" type="text/css" rel="stylesheet"
+			  media="screen,projection"/>
 		<link href="<c:url value="static/css/style.css" />" type="text/css" rel="stylesheet" media="screen,projection"/>
 	</head>
 	<body>
@@ -18,7 +19,7 @@
 		</nav>
 		<div class="section no-pad-bot" id="index-banner">
 			<div class="container">
-				<h3 class="header center orange-text">Визначення середньоринкової вартості авто</h3>
+				<h4 class="header center orange-text">Визначення середньоринкової вартості авто</h4>
 			</div>
 		</div>
 
@@ -40,7 +41,7 @@
 			</div>
 			<div class="footer-copyright">
 				<div class="container">
-					Made by <span class="orange-text text-lighten-3">stanch</span>
+					Made by <span class="orange-text text-lighten-3">stanch</span><br/>
 					Design <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
 				</div>
 			</div>

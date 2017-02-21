@@ -12,3 +12,24 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+#index-banner .header {
+    margin: 0;
+}
+
+#finalPrice {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.carForm {
+    margin-bottom: 0;
+}
+
+.carForm .row {
+    margin-bottom: 10px;
+}
+
+.submitFormBtn {
+    margin-left: 10px;
+}

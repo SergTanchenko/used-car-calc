@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="servlets.PriceCalculationServlet" %>
+<%@ page import="servlets.utils.Formatter" %>
 <%@ page import="java.util.LinkedHashMap" %>
 <%@ page import="static servlets.PriceCalculationServlet.Field.*" %>
 <%@ page import="java.util.Map" %>
@@ -12,7 +13,7 @@
 	request.setAttribute("fieldsMap", fieldsMap);
 %>
 
-<form id="carForm" class="col s12">
+<form class="carForm col s12">
 
 	<c:forEach items="${fieldsMap}" var="field">
 		<c:set var="fieldKey" value="${field.key.toString()}"/>
@@ -21,19 +22,27 @@
 			<div class="input-field col s6">
 				<input id="${fieldKey}" name="${fieldKey}" type="text" class="validate"
 					<c:set var="paramValue" value='${param.get(fieldKey)}'/>
-				<c:if test="${paramValue != null && !empty paramValue}">
+					<c:set var="paramValueExists" value='${!empty paramValue}'/>
+				<c:if test="${paramValueExists}">
 					   value="${paramValue}"</c:if>>
-				<label for=${fieldKey}>${fieldValue}</label>
+				<label for=${fieldKey} <c:if test="${paramValueExists}">class="active"</c:if>>${fieldValue}</label>
 			</div>
 		</div>
 	</c:forEach>
 
-	<div class="row">
-		<a id="submitFormBtn" class="waves-effect waves-light btn">Розрахувати вартість</a>
-	</div>
+	<c:set var="carPrice" value='${requestScope.get("carPrice")}'/>
+	<c:if test="${!empty carPrice}">
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="finalPrice" name="finalPrice" type="text"
+					   value="${Formatter.twoDigitsFormatter(carPrice)}">
+				<label class="active" for="finalPrice">Вартість авто</label>
+			</div>
+		</div>
+	</c:if>
 
-	<div class="row">
-		<div>Price: ${requestScope.get("carPrice")}</div>
 	</div>
-
+	<div class="row">
+		<a class="submitFormBtn waves-effect waves-light btn">Розрахувати вартість</a>
+	</div>
 </form>

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var $carForm = $('#carForm');
+    var $carForm = $('.carForm');
 
     $carForm.submit(function (event) {
         event.preventDefault();
@@ -8,7 +8,7 @@ $(document).ready(function () {
         window.location.href = window.location.origin + "?" + $(this).serialize();
     });
 
-    $('#submitFormBtn').click(function () {
+    $('.submitFormBtn').click(function () {
         $carForm.submit();
     });
 });
