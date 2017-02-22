@@ -39,3 +39,7 @@
     width: 140px;
     height: 100%;
 }
+
+.input-field input {
+    min-width: 245px;
+}
