@@ -33,3 +33,9 @@
 .submitFormBtn {
     margin-left: 10px;
 }
+
+.brand-logo {
+    background: no-repeat center/80% url("/static/images/logo.svg");
+    width: 140px;
+    height: 100%;
+}
