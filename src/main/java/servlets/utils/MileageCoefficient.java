@@ -5,16 +5,21 @@ public class MileageCoefficient {
 
     public static double getCoefficient(Double mileage, Double operatingPeriod) {
         double actualAnnualAverageMileage = mileage / operatingPeriod;
-        double diffNormativeActualMileage = NORMATIVE_ANNUAL_AVERAGE_MILEAGE - actualAnnualAverageMileage;
 
-        if (operatingPeriod < 1 || diffNormativeActualMileage < 2) {
+        if (operatingPeriod < 1) {
             return 0;
         } else {
-            return calculateCoeff(actualAnnualAverageMileage, diffNormativeActualMileage);
+            return calculateCoeff(actualAnnualAverageMileage);
         }
     }
 
-    private static double calculateCoeff(Double actualMileage, Double diffMileage) {
+    private static double calculateCoeff(Double actualMileage) {
+        double diffMileage = NORMATIVE_ANNUAL_AVERAGE_MILEAGE - actualMileage;
+
+        if (diffMileage >= 0 && diffMileage < 2) {
+            return 0;
+        }
+
         if (actualMileage < NORMATIVE_ANNUAL_AVERAGE_MILEAGE) {
             if (diffMileage >= 2 && diffMileage < 5) {
                 return 1;
