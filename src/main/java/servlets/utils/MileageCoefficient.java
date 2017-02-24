@@ -39,7 +39,7 @@ public class MileageCoefficient {
                 return 8;
             } else if (diffMileage >= 20 && diffMileage < 22) {
                 return 8.5;
-            } else {
+            } else if (diffMileage >= 22) {
                 return 9;
             }
         } else {
@@ -61,7 +61,7 @@ public class MileageCoefficient {
                 return 6.5;
             } else if (diffMileage >= 20 && diffMileage < 22) {
                 return 7;
-            } else {
+            } else if (diffMileage >= 22) {
                 return 7.5;
             }
         }
