@@ -2,9 +2,11 @@ package servlets.utils;
 
 public class MileageCoefficient {
     private static final int NORMATIVE_ANNUAL_AVERAGE_MILEAGE = 27;
+    private static final double[] LESS_THAN_MILEAGE_COEFF_ARRAY = new double[]{1, 3, 5, 6, 6.5, 7, 7.5, 8, 8.5, 9};
+    private static final double[] MORE_THAN_MILEAGE_COEFF_ARRAY = new double[]{0.5, 1.5, 3, 4.5, 5, 5.5, 6, 6.5, 7, 7.5};
 
-    public static double getCoefficient(Double mileage, Double operatingPeriod) {
-        double actualAnnualAverageMileage = mileage / operatingPeriod;
+    public static double getCoefficient(Double actualMileage, Double operatingPeriod) {
+        double actualAnnualAverageMileage = actualMileage / operatingPeriod;
 
         if (operatingPeriod < 1) {
             return 0;
@@ -13,57 +15,42 @@ public class MileageCoefficient {
         }
     }
 
-    private static double calculateCoeff(Double actualMileage) {
-        double diffMileage = NORMATIVE_ANNUAL_AVERAGE_MILEAGE - actualMileage;
+    private static double calculateCoeff(Double actualAnnualAverageMileage) {
+        double diffAnnualMileage = NORMATIVE_ANNUAL_AVERAGE_MILEAGE - actualAnnualAverageMileage;
 
-        if (diffMileage >= 0 && diffMileage < 2) {
+        double absDiffAnnualMileage = Math.abs(diffAnnualMileage);
+        if (absDiffAnnualMileage < 2) {
             return 0;
         }
 
-        if (actualMileage < NORMATIVE_ANNUAL_AVERAGE_MILEAGE) {
-            if (diffMileage >= 2 && diffMileage < 5) {
-                return 1;
-            } else if (diffMileage >= 5 && diffMileage < 8) {
-                return 3;
-            } else if (diffMileage >= 8 && diffMileage < 10) {
-                return 5;
-            } else if (diffMileage >= 10 && diffMileage < 12) {
-                return 6;
-            } else if (diffMileage >= 12 && diffMileage < 14) {
-                return 6.5;
-            } else if (diffMileage >= 14 && diffMileage < 16) {
-                return 7;
-            } else if (diffMileage >= 16 && diffMileage < 18) {
-                return 7.5;
-            } else if (diffMileage >= 18 && diffMileage < 20) {
-                return 8;
-            } else if (diffMileage >= 20 && diffMileage < 22) {
-                return 8.5;
-            } else if (diffMileage >= 22) {
-                return 9;
-            }
+        if (actualAnnualAverageMileage < NORMATIVE_ANNUAL_AVERAGE_MILEAGE) {
+            return getCoeff(absDiffAnnualMileage, LESS_THAN_MILEAGE_COEFF_ARRAY);
         } else {
-            if (diffMileage >= 2 && diffMileage < 5) {
-                return 0.5;
-            } else if (diffMileage >= 5 && diffMileage < 8) {
-                return 1.5;
-            } else if (diffMileage >= 8 && diffMileage < 10) {
-                return 3;
-            } else if (diffMileage >= 10 && diffMileage < 12) {
-                return 4.5;
-            } else if (diffMileage >= 12 && diffMileage < 14) {
-                return 5;
-            } else if (diffMileage >= 14 && diffMileage < 16) {
-                return 5.5;
-            } else if (diffMileage >= 16 && diffMileage < 18) {
-                return 9;
-            } else if (diffMileage >= 18 && diffMileage < 20) {
-                return 6.5;
-            } else if (diffMileage >= 20 && diffMileage < 22) {
-                return 7;
-            } else if (diffMileage >= 22) {
-                return 7.5;
-            }
+            return getCoeff(absDiffAnnualMileage, MORE_THAN_MILEAGE_COEFF_ARRAY);
+        }
+    }
+
+    private static double getCoeff(double absDiffAnnualMileage, double[] coeffArray) {
+        if (absDiffAnnualMileage >= 2 && absDiffAnnualMileage < 5) {
+            return coeffArray[0];
+        } else if (absDiffAnnualMileage >= 5 && absDiffAnnualMileage < 8) {
+            return coeffArray[1];
+        } else if (absDiffAnnualMileage >= 8 && absDiffAnnualMileage < 10) {
+            return coeffArray[2];
+        } else if (absDiffAnnualMileage >= 10 && absDiffAnnualMileage < 12) {
+            return coeffArray[3];
+        } else if (absDiffAnnualMileage >= 12 && absDiffAnnualMileage < 14) {
+            return coeffArray[4];
+        } else if (absDiffAnnualMileage >= 14 && absDiffAnnualMileage < 16) {
+            return coeffArray[5];
+        } else if (absDiffAnnualMileage >= 16 && absDiffAnnualMileage < 18) {
+            return coeffArray[6];
+        } else if (absDiffAnnualMileage >= 18 && absDiffAnnualMileage < 20) {
+            return coeffArray[7];
+        } else if (absDiffAnnualMileage >= 20 && absDiffAnnualMileage < 22) {
+            return coeffArray[8];
+        } else {
+            return coeffArray[9];
         }
     }
 }
