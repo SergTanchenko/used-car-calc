@@ -33,8 +33,8 @@
 	<c:set var="carPrice" value='${requestScope.get("carPrice")}'/>
 	<c:if test="${!empty carPrice}">
 		<div class="row">
-			<div class="input-field col s12">
-				<input id="finalPrice" name="finalPrice" type="text"
+			<div class="input-field col s6">
+				<input disabled id="finalPrice" class="finalPrice disabled" type="text"
 					   value="${Formatter.twoDigitsFormatter(carPrice)}">
 				<label class="active" for="finalPrice">Вартість авто</label>
 			</div>
