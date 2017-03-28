@@ -34,7 +34,6 @@
 
 	<c:set var="carPrice" value='${requestScope.carPrice}'/>
 	<c:if test="${!empty carPrice}">
-		<%--<fmt:parseNumber var="doubleCarPrice" type="number" value="${carPrice}" />--%>
 		<div class="row">
 			<div class="input-field col s6">
 				<input disabled id="finalPrice" class="finalPrice disabled" type="text"
