@@ -1,6 +1,5 @@
 package servlets;
 
-import org.apache.log4j.Logger;
 import servlets.utils.MileageCoefficient;
 import servlets.utils.OperatingPeriodCoefficient;
 
@@ -16,7 +15,7 @@ import static servlets.PriceCalculationServlet.Field.*;
 
 public class PriceCalculationServlet extends HttpServlet {
 
-    private final static Logger LOGGER = Logger.getLogger(PriceCalculationServlet.class);
+    public static final String CAR_PRICE_ATTRIBUTE = "carPrice";
 
     private Map<String, String[]> urlParams;
 
@@ -28,7 +27,7 @@ public class PriceCalculationServlet extends HttpServlet {
             Double newCarPrice = Double.valueOf(urlParams.get(NEW_CAR_PRICE.toString())[0]) * 1000;
             Double operatingPeriod = Double.valueOf(urlParams.get(OPERATING_PERIOD.toString())[0]);
             Double mileage = Double.valueOf(urlParams.get(MILEAGE.toString())[0]);
-            req.setAttribute("carPrice", calculatePrice(newCarPrice, operatingPeriod, mileage));
+            req.setAttribute(CAR_PRICE_ATTRIBUTE, calculatePrice(newCarPrice, operatingPeriod, mileage));
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("mainView.jsp");
@@ -46,7 +45,6 @@ public class PriceCalculationServlet extends HttpServlet {
             Double.valueOf(urlParams.get(MILEAGE.toString())[0]);
         } catch (NumberFormatException e) {
             result = false;
-            LOGGER.warn("Parameter format is not valid: " + e);
         }
         return result;
     }
