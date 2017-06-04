@@ -36,28 +36,20 @@
 			<div class="container">
 				<div class="row">
 					<div class="col l6 s12">
-						<h5 class="white-text">Про проект</h5>
-						<p class="grey-text text-lighten-3">Розрахунки проводяться за формулою взятій із постанови:
-							"Порядок визначення середньоринкової вартості легкових автомобілів, мотоциклів, мопедів"</p>
-						<p class="grey-text text-lighten-3">Даний проект розроблений у навчальних цілях та може містити
-							помилки</p>
-					</div>
-					<div class="col l6 s12">
 						<h5 class="white-text">Посилання</h5>
-						<ul>
-							<li><a class="white-text" href="https://zakon3.rada.gov.ua/laws/show/403-2013-%D0%BF">Порядок
-								визначення
-								середньоринкової вартості легкових автомобілів, мотоциклів, мопедів</a></li>
-							<li><a class="white-text" href="https://github.com/SergTanchenko/used-car-calc/issues">Знайшли помилку, опишіть її тут</a></li>
+						<ul class="st-links">
+							<li><a class="st-link white-text" href="https://zakon3.rada.gov.ua/laws/show/403-2013-%D0%BF">Порядок
+								визначення середньоринкової вартості легкових автомобілів, мотоциклів, мопедів</a></li>
+							<li><a class="st-link white-text" href="https://github.com/SergTanchenko/used-car-calc/issues">Знайшли помилку, опишіть її тут</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="footer-copyright">
 				<div class="container">
-					Made by <a class="orange-text text-lighten-3" href="http://github.com/SergTanchenko">Serhii
+					Made by <a class="st-link orange-text text-lighten-3" href="http://github.com/SergTanchenko">Serhii
 					Tanchenko</a><br/>
-					Design <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+					Design <a class="st-link orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
 				</div>
 			</div>
 		</footer>

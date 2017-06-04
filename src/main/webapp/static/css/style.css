@@ -46,3 +46,7 @@
 .input-field input {
     min-width: 245px;
 }
+
+.st-links .st-link:hover {
+    text-decoration: underline;
+}
