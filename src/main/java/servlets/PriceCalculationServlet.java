@@ -24,7 +24,7 @@ public class PriceCalculationServlet extends HttpServlet {
         urlParams = req.getParameterMap();
 
         if (urlParams.size() == Field.values().length && allParamsValid(urlParams)) {
-            Double newCarPrice = Double.valueOf(urlParams.get(NEW_CAR_PRICE.toString())[0]) * 1000;
+            Double newCarPrice = Double.valueOf(urlParams.get(NEW_CAR_PRICE.toString())[0]);
             Double operatingPeriod = Double.valueOf(urlParams.get(OPERATING_PERIOD.toString())[0]);
             Double mileage = Double.valueOf(urlParams.get(MILEAGE.toString())[0]);
             req.setAttribute(CAR_PRICE_ATTRIBUTE, calculatePrice(newCarPrice, operatingPeriod, mileage));

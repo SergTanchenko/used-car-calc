@@ -9,7 +9,7 @@
 
 <%
 	Map<PriceCalculationServlet.Field, String> fieldsMap = new LinkedHashMap<>();
-	fieldsMap.put(NEW_CAR_PRICE, "Ціна нового авто в Україні (тис. грн.)");
+	fieldsMap.put(NEW_CAR_PRICE, "Ціна нового авто в Україні (грн.)");
 	fieldsMap.put(OPERATING_PERIOD, "Період експлуатації (у роках)");
 	fieldsMap.put(MILEAGE, "Пробіг (тис. км.)");
 	request.setAttribute("fieldsMap", fieldsMap);
@@ -38,7 +38,7 @@
 			<div class="input-field col s6">
 				<input disabled id="finalPrice" class="finalPrice disabled" type="text"
 					   value="${f:calculateAmount(carPrice)}">
-				<label class="active" for="finalPrice">Вартість авто</label>
+				<label class="active" for="finalPrice">Вартість авто (грн.)</label>
 			</div>
 		</div>
 	</c:if>
