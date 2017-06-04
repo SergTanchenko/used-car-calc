@@ -61,7 +61,7 @@ public class PriceCalculationServlet extends HttpServlet {
         int operatingPeriodCoeff = OperatingPeriodCoefficient.getCoefficient(operatingPeriod);
         double mileageCoeff = MileageCoefficient.getCoefficient(mileage, operatingPeriod);
 
-        result = newCarPrice * operatingPeriodCoeff / 100 * (1 - mileageCoeff / 100);
+        result = newCarPrice * operatingPeriodCoeff / 100 * (1 + mileageCoeff / 100);
 
         return result;
     }
